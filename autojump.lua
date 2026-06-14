@@ -14,13 +14,13 @@ local TextButton = Instance.new("TextButton", Frame)
 local ativo = false
 TextButton.Size = UDim2.new(0, 200, 0, 50)
 TextButton.BackgroundTransparency = 0
-TextButton.Text = "Hello"
+TextButton.Text = 'speed'
 
 TextButton.Activated:Connect(function()
 	ativo = not ativo
 	if ativo then
-	humanoid.WalkSpeed = 50
+		humanoid.WalkSpeed = 100
 	else
-	humanoid.WalkSpeed = 16
+		humanoid.WalkSpeed = 16
 	end
 end)
