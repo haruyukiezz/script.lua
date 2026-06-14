@@ -24,7 +24,7 @@ button.Activated:Connect(function()
 	aberto = not aberto
 
 	if aberto then
-		
+
 		menuFrame = Instance.new("ScreenGui", Playergui)
 
 		local Frame = Instance.new("Frame", menuFrame)
@@ -53,34 +53,34 @@ button.Activated:Connect(function()
 		TextLabel.TextColor3 = Color3.fromHSV(0, 0.0313725, 1)
 		TextLabel.Font = Enum.Font.Fondamento
 
-		local TextButton = Instance.new("TextButton", Frame)
-		local cornerbutton = Instance.new("UICorner", TextButton)
+		local TextBox = Instance.new("TextBox", Frame)
+		local cornerbutton = Instance.new("UICorner", TextBox)
 
 		local ativo = false
 
-		TextButton.Size = UDim2.new(0, 50, 0, 50)
-		TextButton.BackgroundColor3 = Color3.fromHSV(0, 1, 1)
-		TextButton.TextColor3 = Color3.fromHSV(0, 0, 1)
-		TextButton.TextScaled = true
-		TextButton.Text = "speed"
-		TextButton.Font = Enum.Font.FredokaOne
+		TextBox.Size = UDim2.new(0, 50, 0, 50)
+		TextBox.BackgroundColor3 = Color3.fromHSV(0, 1, 1)
+		TextBox.TextColor3 = Color3.fromHSV(0, 0, 1)
+		TextBox.TextScaled = true
+		TextBox.Text = "speed"
+		TextBox.Font = Enum.Font.FredokaOne
 
 		cornerbutton.CornerRadius = UDim.new(0, 100)
 
-		TextButton.Activated:Connect(function()
-			ativo = not ativo
+		TextBox.FocusLost:Connect(function()
 
-			if ativo then
-				TextButton.BackgroundColor3 = Color3.fromHSV(0.297389, 1, 1)
-				humanoid.WalkSpeed = 100
-			else
-				TextButton.BackgroundColor3 = Color3.fromHSV(0, 1, 1)
+			local numero = tonumber(TextBox.Text)
+
+			if TextBox.Text == "" or not numero then
+				TextBox.Text = 'speed'
 				humanoid.WalkSpeed = 16
-			end
+			else 
+				humanoid.WalkSpeed = numero 
+			end 
 		end)
 
 	else
-		
+
 		if menuFrame then
 			menuFrame:Destroy()
 			menuFrame = nil
